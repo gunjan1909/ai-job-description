@@ -13,13 +13,42 @@ export default function Dashboard() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
+  //function to copy the generated descirption to clipboard
+  const copyToClipboardHandler = () => {
+    navigator.clipboard.writeText(jobDescription);
+    setIsCopied(true);
+  };
+
+  //function to handle submission of form and generate job description
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    setIsGenerating(true);
+    const res = await fetch("/api/returnJobDescription", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        jobTitle,
+        industry,
+        keyWords,
+        tone,
+        numWords,
+      }),
+    });
+    setIsGenerating(false);
+    const data = await res.json();
+    console.log(data);
+    setJobDescription(data.jobDescription.trim());
+  };
+
   //returning the jsx
   return (
     <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="grid gap-y-12 md:grid-cols-2 md:gap-x-12 ">
         {/* form */}
         <div className="">
-          <form>
+          <form onSubmit={(e) => submitHandler(e)}>
             <div className="flex flex-col">
               <label className="sr-only" htmlFor="jobTitle">
                 Job Title
@@ -139,12 +168,14 @@ export default function Dashboard() {
               value={jobDescription}
               disabled={jobDescription === ""}
               id="output"
-              placeholder="AI Generated Job Description"
+              placeholder="AI Generated Job Description..."
               className="block w-full rounded-md bg-gray-500 border border-gray-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg px-4 py-2 placeholder-white my-2 text-slate-50 font-medium"
             />
             <button
-              onClick={() => {}}
-              className="bg-blue-600 hover:transition-all hover:bg-blue-700 text-white font-medium py-2 px-4 rounded "
+              onClick={() => {
+                copyToClipboardHandler;
+              }}
+              className="bg-blue-600 hover:transition-all hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
               type="submit"
               disabled={jobDescription === ""}
             >

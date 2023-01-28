@@ -109,3 +109,23 @@ a {
     color-scheme: dark;
   }
 }
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  background-clip: padding-box;
+  padding: 1px !important;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(153, 176, 188, 0.45);
+  border-radius: 2px;
+  background-clip: padding-box;
+  padding: 1px !important;
+}
+/* SCROLLBAR END */
