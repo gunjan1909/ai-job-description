@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First create a .env file in root directory and add your openAI API key as:
+First create a .env file in root directory and add your [openAI API](https://beta.openai.com/account/api-keys) key as:
 
 ```
 OPENAI_API_KEY = YOUR_API_KEY
