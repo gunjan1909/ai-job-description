@@ -38,7 +38,7 @@ export default function Dashboard() {
     });
     setIsGenerating(false);
     const data = await res.json();
-    console.log(data);
+    //console.log(data);
     setJobDescription(data.jobDescription.trim());
   };
 
@@ -172,14 +172,12 @@ export default function Dashboard() {
               className="block w-full rounded-md bg-gray-500 border border-gray-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg px-4 py-2 placeholder-white my-2 text-slate-50 font-medium"
             />
             <button
-              onClick={() => {
-                copyToClipboardHandler;
-              }}
+              onClick={copyToClipboardHandler}
               className="bg-blue-600 hover:transition-all hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
               type="submit"
               disabled={jobDescription === ""}
             >
-              {isCopied ? "Copied" : "Copy to Clipboard"}
+              {isCopied ? "Copied!" : "Copy to Clipboard"}
             </button>
           </div>
         </div>
