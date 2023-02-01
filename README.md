@@ -2,8 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Production
 
-Note:- There are some glitches in production version on vercel..local dev version is running fine..but under production there's some problem from vercel...which isn't resolved. 😕 <br>
-[Click here](https://ai-job-description-two.vercel.app/)
+Note:-
+
+- The production site might stop working once the api key is expired or the openAi API revokes the free version.
+- There are some glitches in production version on vercel..local dev version is running fine..but under production there's some problem from vercel...which isn't resolved. 😕 <br>
+  [Click here to view](https://ai-job-description-two.vercel.app/)
 
 ## Getting Started
 
