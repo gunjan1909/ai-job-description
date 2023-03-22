@@ -48,7 +48,9 @@ const generateDescription = async ({
         }),
       }
     );
+    console.log("hello", response);
     const data = await response.json();
+    console.log(data);
     return data.choices[0].text;
   } catch (err) {
     console.error(err);
@@ -65,6 +67,8 @@ export default async function handler(req, res) {
     tone,
     numWords,
   });
+
+  console.log(jobDescription);
 
   res.status(200).json({
     jobDescription,

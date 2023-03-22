@@ -37,6 +37,7 @@ export default function Dashboard() {
       }),
     });
     setIsGenerating(false);
+    // console.log(res.json());
     const data = await res.json();
     //console.log(data);
     setJobDescription(data.jobDescription.trim());
